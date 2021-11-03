@@ -20,7 +20,7 @@ const Translation: React.FC<IProps> = ({
     tgtLang,
     srcText,
   });
-  console.log({ loading });
+
   return (
     <div className="flex flex-col p-2">
       <div className="whitespace-pre">{tgtText}</div>

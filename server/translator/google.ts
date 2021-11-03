@@ -13,7 +13,6 @@ export async function translateText({
     from: srcLang,
     to: tgtLang,
   });
-  console.log(translations);
 
   return translations;
 }

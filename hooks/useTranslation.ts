@@ -13,7 +13,6 @@ const useTranslation = ({ engine, srcLang, tgtLang, srcText }: IParams) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    console.log({ srcText: srcText.split("\n") });
     if (srcText.length === 0) {
       setTgtText("");
       return;
