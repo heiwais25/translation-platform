@@ -6,7 +6,7 @@ import styles from "../styles/Home.module.css";
 import TextareaAutosize from "react-textarea-autosize";
 import Translation from "../components/home/Translation";
 import MainRowItem from "../components/home/MainRowItem";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, KeyboardEvent } from "react";
 import LanguageDirection from "../components/home/LanguageDirection";
 
 const Home: NextPage = () => {
@@ -28,6 +28,12 @@ const Home: NextPage = () => {
     const curTgtLang = tgtLang;
     setSrcLang(curTgtLang);
     setTgtLang(curSrcLang);
+  };
+
+  const onTextareaKeyPress = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.ctrlKey && e.key === "Enter") {
+      setSrcText(tmpText);
+    }
   };
 
   return (
@@ -56,6 +62,7 @@ const Home: NextPage = () => {
               className="w-full resize-none p-2"
               minRows={20}
               onChange={onTextUpdate}
+              onKeyPress={onTextareaKeyPress}
             />
             <button
               className="w-full p-2 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-sm"
