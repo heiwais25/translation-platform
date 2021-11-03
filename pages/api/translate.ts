@@ -1,5 +1,6 @@
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { translateText } from "../../server/translator/google";
 
 type Data = {
   tgtText: string;
@@ -37,6 +38,10 @@ export default async function handler(
     );
 
     tgtText = result.data.result;
+  } else if (engine === "google") {
+    const result = await translateText({ srcLang, tgtLang, srcText });
+
+    tgtText = result;
   }
 
   res.status(200).json({ tgtText });

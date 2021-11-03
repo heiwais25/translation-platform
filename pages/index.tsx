@@ -81,10 +81,10 @@ const Home: NextPage = () => {
           </MainRowItem>
           <MainRowItem title="Google">
             <Translation
-              engine="sr-translate"
-              srcLang="en"
-              tgtLang="ko"
-              srcText="hello"
+              engine="google"
+              srcLang={srcLang}
+              tgtLang={tgtLang}
+              srcText={srcText}
             />
           </MainRowItem>
           <MainRowItem title="Papago">
